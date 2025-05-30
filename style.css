@@ -1,0 +1,154 @@
+/* Resetando alguns estilos padrões */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container principal do card */
+.container {
+    text-align: center;
+    background-color: #1e1e1e;
+    border-radius: 15px;
+    padding: 40px 40px 60px;  /* Aumenta o padding para um card maior */
+    width: 80%;
+    max-width: 800px;  /* Aumenta a largura máxima do card */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 50%;
+}
+
+h1 {
+    color: #1e90ff;
+    font-size: 2.5em;  /* Aumenta o tamanho do título */
+    margin-bottom: 20px;
+}
+
+/* Botão de login */
+.btn {
+    background-color: #1e90ff;
+    border: none;
+    padding: 12px 30px;
+    color: #fff;
+    font-size: 1.3em;  /* Aumenta o tamanho da fonte */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #007bff;
+    transform: scale(1.1);
+}
+
+.text {
+    font-size: 1.1em;
+    margin-top: 20px;
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #aaa;
+}
+
+/* Estilo para cada hack */
+.hack-list-container {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    padding: 30px;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    overflow-y: auto;
+    max-height: 80vh;  /* Limita a altura da lista */
+    margin-top: 40px;
+}
+
+/* Estilo para cada hack */
+.hack {
+    background-color: #2c2c2c;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    padding: 25px;  /* Aumenta o padding do hack */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.hack h2 {
+    font-size: 1.8em;  /* Aumenta o tamanho do título */
+    color: #00aaff;
+    margin-bottom: 15px;
+}
+
+/* Descrição do hack */
+.hack p {
+    font-size: 1.2em;  /* Aumenta o tamanho da fonte da descrição */
+    margin-bottom: 15px;
+    color: #ddd;
+}
+
+/* Estilo para piso e tipo */
+.hack p strong {
+    color: #00aaff;
+}
+
+/* Imagem do hack */
+.hack img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+/* Caso a imagem não esteja disponível */
+.hack em {
+    color: #ff4d4d;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .hack {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .hack h2 {
+        font-size: 1.5em;
+    }
+
+    .hack p {
+        font-size: 1.1em;
+    }
+}

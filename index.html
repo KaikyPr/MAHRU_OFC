@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/Design_sem_nome-removebg-preview.ico" type="image/x-icon">
+    <title>MAHRU - Mapeamento de Hacks de Rede UNESC</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    
+    <!-- Estilos globais do sistema -->
+    <link rel="stylesheet" href="styles/style.css">
+    
+    <style>
+        /* Estilos específicos da landing page */
+        :root {
+            --primary-color: #00aaff;
+            --secondary-color: #121212;
+            --accent-color: #6200ea;
+            --text-color: #ffffff;
+            --card-bg: #2a2a2a;
+            --hover-color: #0088cc;
+            --muted-text: #cccccc;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/LOGO.png') center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--muted-text);
+            max-width: 800px;
+            animation: fadeInUp 1s ease 0.3s;
+            animation-fill-mode: both;
+        }
+        
+        .btn-custom {
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            margin: 10px;
+            animation: fadeInUp 1s ease 0.6s;
+            animation-fill-mode: both;
+        }
+        
+        .btn-primary-custom {
+            background-color: var(--primary-color);
+            border: none;
+            color: white;
+        }
+        
+        .btn-primary-custom:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-secondary-custom {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-secondary-custom:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .features-section {
+            padding: 80px 0;
+            background-color: #1a1a1a;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .feature-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-top: 3px solid transparent;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-top: 3px solid var(--primary-color);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .feature-description {
+            color: var(--muted-text);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .about-section {
+            padding: 80px 0;
+            background-color: var(--secondary-color);
+        }
+        
+        .about-img {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 3px solid var(--card-bg);
+            transition: all 0.3s ease;
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-img:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-content {
+            padding: 20px;
+        }
+        
+        .about-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .about-text {
+            color: var(--muted-text);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/LOGO.png') center/cover;
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .cta-text {
+            color: var(--muted-text);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease 0.3s;
+            animation-fill-mode: both;
+        }
+        
+        footer {
+            background-color: #0a0a0a;
+            padding: 30px 0;
+            color: #777;
+            text-align: center;
+        }
+        
+        .footer-text {
+            margin-bottom: 0;
+        }
+        
+        /* Animações */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .btn-custom {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .about-title {
+                font-size: 2rem;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Animação de carregamento */
+        #loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--secondary-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        #loading-overlay.fade-out {
+            opacity: 0;
+        }
+
+        .spinner {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .double-bounce1, .double-bounce2 {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            opacity: 0.6;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: sk-bounce 2.0s infinite ease-in-out;
+        }
+
+        .double-bounce2 {
+            animation-delay: -1.0s;
+        }
+
+        @keyframes sk-bounce {
+            0%, 100% { 
+                transform: scale(0.0);
+            } 50% { 
+                transform: scale(1.0);
+            }
+        }
+
+        .loading-text {
+            color: var(--text-color);
+            font-size: 18px;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.5;
+            }
+        }
+
+        .hidden-content {
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loading Overlay -->
+    <div id="loading-overlay">
+        <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
+        <div class="loading-text">CARREGANDO...</div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div class="hidden-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title">MAHRU</h1>
+            <p class="hero-subtitle">Mapeamento de Hacks de Rede UNESC - Sistema de gerenciamento e visualização de hacks para pisos internos e externos</p>
+            <div class="d-flex flex-wrap justify-content-center">
+                <a href="login.php" class="btn btn-custom btn-primary-custom btn-hover-effect">Acessar Sistema</a>
+                <a href="#features" class="btn btn-custom btn-secondary-custom btn-hover-effect">Saiba Mais</a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="container">
+            <h2 class="section-title">Recursos do Sistema</h2>
+            <div class="row gy-4" style="--bs-gutter-y: 1cm;">
+                <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Mapeamento Detalhado</h3>
+                    <p class="feature-description">Visualize e gerencie hacks de rede em diferentes pisos da UNESC, com separação entre ambientes internos e externos.</p>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                    <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <h3 class="feature-title">Cadastro Simplificado</h3>
+                    <p class="feature-description">Adicione novos hacks facilmente com informações detalhadas e imagens para melhor identificação.</p>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                    <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="feature-title">Busca Avançada</h3>
+                    <p class="feature-description">Encontre rapidamente os hacks cadastrados utilizando filtros por piso, tipo e palavras-chave.</p>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                    <i class="fas fa-edit"></i>
+                    </div>
+                    <h3 class="feature-title">Edição e Atualização</h3>
+                    <p class="feature-description">Mantenha as informações sempre atualizadas com ferramentas de edição e exclusão de registros.</p>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Design Responsivo</h3>
+                    <p class="feature-description">Acesse o sistema de qualquer dispositivo com uma interface adaptada para desktop, tablets e smartphones.</p>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Segurança Avançada</h3>
+                    <p class="feature-description">Sistema protegido com autenticação de usuários e validação de dados para garantir a integridade das informações.</p>
+                </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="about-img">
+                            <img src="img/LOGO.png" alt="MAHRU System" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-content">
+                            <h2 class="about-title">Sobre o MAHRU</h2>
+                            <div class="about-text">
+                                <p>O MAHRU (Mapeamento de Hacks de Rede UNESC) é um sistema web desenvolvido para mapear e gerenciar os pontos de acesso à rede no campus da UNESC.</p>
+                                <p>Criado com as tecnologias PHP, MySQL, HTML, CSS e JavaScript, o software permite catalogar os hacks de rede conforme sua localização (por pisos) e tipo (interno ou externo).</p>
+                                <p>Seu principal objetivo é facilitar a manutenção e o controle da infraestrutura de rede, oferecendo uma visão organizada e acessível dos pontos de conexão distribuídos pela instituição.</p>
+                            </div>
+                            <a href="login.php" class="btn btn-custom btn-primary-custom btn-hover-effect">Acessar Agora</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2 class="cta-title">Pronto para começar?</h2>
+                <p class="cta-text">Acesse o sistema MAHRU agora mesmo e comece a gerenciar os hacks de rede da UNESC de forma eficiente e organizada.</p>
+                <a href="login.php" class="btn btn-custom btn-primary-custom btn-hover-effect">Acessar o Sistema</a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p class="footer-text">&copy; 2025 MAHRU - Mapeamento de Hacks de Rede UNESC.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Scripts personalizados -->
+    <script>
+        // Animação de carregamento
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                const loadingOverlay = document.getElementById('loading-overlay');
+                const hiddenContent = document.querySelector('.hidden-content');
+                
+                loadingOverlay.classList.add('fade-out');
+                
+                setTimeout(function() {
+                    loadingOverlay.style.display = 'none';
+                    hiddenContent.style.opacity = '1';
+                }, 500);
+            }, 1000); // Tempo de exibição do loading (1 segundo)
+        });
+        
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
